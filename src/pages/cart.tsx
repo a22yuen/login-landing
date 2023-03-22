@@ -12,7 +12,6 @@ const Arrow = () => (
 export default function Cart() {
   const router = useRouter();
   const { cartItems, setCartItems } = useContext(Context);
-  // const [counter, setCounter] = useState<Count>({});
   const [processedItems, setProcessedItems] = useState<number[]>([]);
   const [packagedItems, setPackagedItems] = useState<number[]>([]);
   const [bulkItems, setBulkItems] = useState<number[]>([]);
