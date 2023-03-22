@@ -115,7 +115,7 @@ export default function Landing() {
           </div>
           <div className="grid grid-cols-3 gap-4">
             {currentItems.map((item) => (
-              <div className="bg-white rounded-lg shadow-lg p-4">
+              <div key={item.id} className="bg-white rounded-lg shadow-lg p-4">
                 <h2 className="text-xl font-bold">{item.name}</h2>
                 <p className="text-gray-600">${item.price}</p>
                 <div className="text-end">

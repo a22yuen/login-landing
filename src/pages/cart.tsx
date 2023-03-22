@@ -70,7 +70,7 @@ export default function Cart() {
 
   const Tag = ({ id }: { id: number }) => {
     return (
-      cartItems[id] > 0 && (
+      cartItems[id] > 0 ? (
         <div key={id} className="flex items-center py-2 border-b">
           <div className="w-1/2">{items[id].name}</div>
           <div className="w-1/4">${items[id].price}</div>
@@ -90,7 +90,7 @@ export default function Cart() {
             </button>
           </div>
         </div>
-      )
+      ) : null
     );
   };
 
@@ -126,7 +126,7 @@ export default function Cart() {
               }`}
             >
               {processedItems.map((item: number) => (
-                <Tag id={item} />
+                <Tag key={item} id={item} />
               ))}
             </div>
           </div>
@@ -147,7 +147,7 @@ export default function Cart() {
               }`}
             >
               {packagedItems.map((item: number) => (
-                <Tag id={item} />
+                <Tag key={item} id={item} />
               ))}
             </div>
           </div>
@@ -168,7 +168,7 @@ export default function Cart() {
               }`}
             >
               {bulkItems.map((item: number) => (
-                <Tag id={item} />
+                <Tag key={item} id={item} />
               ))}
             </div>
           </div>
@@ -181,7 +181,7 @@ export default function Cart() {
               <div>
                 $
                 {Object.keys(cartItems)
-                  .reduce((acc, item) => {
+                  .reduce((acc, item: any) => {
                     return acc + items[item].price * cartItems[item];
                   }, 0)
                   .toFixed(2)}
